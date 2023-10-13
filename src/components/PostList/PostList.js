@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { db } from "../config/firebase";
+import { useCallback, useEffect, useState } from "react";
+import { db } from "../../config/firebase";
 import {
 	getDocs,
 	collection,
@@ -14,11 +14,7 @@ export const PostList = () => {
 	const [updatedPostTitle, setUpdatedTitle] = useState("");
 	const postsCollectionRef = collection(db, "posts");
 
-	useEffect(() => {
-		getPosts();
-	}, []);
-
-	const getPosts = async () => {
+	const getPosts = useCallback(async () => {
 		try {
 			const data = await getDocs(postsCollectionRef);
 			const filteredData = data.docs.map((doc) => ({
@@ -29,7 +25,11 @@ export const PostList = () => {
 		} catch (error) {
 			console.error(error);
 		}
-	};
+	}, [postsCollectionRef]);
+
+	useEffect(() => {
+		getPosts();
+	}, [getPosts]);
 
 	const deletePost = async (id) => {
 		try {

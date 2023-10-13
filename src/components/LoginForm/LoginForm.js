@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { auth, googleProvider } from "../config/firebase";
+import { auth, googleProvider } from "../../config/firebase";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import {
 	Box,
@@ -13,14 +13,14 @@ import {
 	TextField,
 	Typography,
 } from "@mui/material";
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 
 const Copyright = () => {
 	return (
 		<Typography variant="body2" color="textSecondary" align="center">
 			{"Copyright © "}
-			<Link color="inherit" href="https://material-ui.com/">
-				Your Website
+			<Link color="inherit" href="https://github.com/JustinUyheng">
+				Justin Uyheng
 			</Link>{" "}
 			{new Date().getFullYear()}
 			{"."}
