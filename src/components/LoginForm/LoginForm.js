@@ -15,20 +15,8 @@ import {
 	Typography,
 } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
+import { Copyright } from "../Copyright/Copyright";
 import logo from "../../assets/logo.png";
-
-const Copyright = () => {
-	return (
-		<Typography variant="body2" color="textSecondary" align="center">
-			{"Copyright © "}
-			<Link color="inherit" href="https://github.com/JustinUyheng">
-				Justin Uyheng
-			</Link>{" "}
-			{new Date().getFullYear()}
-			{"."}
-		</Typography>
-	);
-};
 
 export const LoginForm = () => {
 	const [email, setEmail] = useState("");
