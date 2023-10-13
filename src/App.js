@@ -34,8 +34,8 @@ function App() {
 			<Button variant="contained" color="primary" onClick={logout}>
 				Logout
 			</Button> */}
-				{/* <LoginForm /> */}
-				{/* <PostList /> */}
+				<LoginForm />
+				<PostList />
 				<PostForm />
 			</Grid>
 		</div>

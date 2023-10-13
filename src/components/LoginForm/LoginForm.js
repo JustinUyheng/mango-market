@@ -5,14 +5,16 @@ import {
 	Box,
 	Button,
 	Checkbox,
-	CssBaseline,
+	Divider,
 	FormControlLabel,
 	Grid,
+	IconButton,
 	Link,
-	Paper,
+	Stack,
 	TextField,
 	Typography,
 } from "@mui/material";
+import GoogleIcon from "@mui/icons-material/Google";
 import logo from "../../assets/logo.png";
 
 const Copyright = () => {
@@ -54,69 +56,58 @@ export const LoginForm = () => {
 	};
 
 	return (
-		<Grid container component="main">
-			<CssBaseline />
-			<Grid item xs={12} sm={8} md={5} component={Paper} elevation={1} square>
-				<div>
-					<img alt="Mango Market" src={logo} />
-					<Typography>Sign In</Typography>
-					<form noValidate>
-						<TextField
-							variant="outlined"
-							margin="normal"
-							required
-							fullWidth
-							id="email"
-							label="Email"
-							name="email"
-							autoFocus
-							onChange={(e) => setEmail(e.target.value)}
-						/>
-						<TextField
-							variant="outlined"
-							margin="normal"
-							required
-							fullWidth
-							name="password"
-							label="Password"
-							type="password"
-							id="password"
-							autoComplete="current-password"
-							onChange={(e) => setPassword(e.target.value)}
-						/>
-						<FormControlLabel
-							control={<Checkbox value="remember" color="primary" />}
-							label="Remember me"
-						/>
-						<Button
-							// fullWidth
-							variant="contained"
-							color="primary"
-							onClick={signIn}
-						>
-							Sign In
-						</Button>
-						<Button
-							// fullWidth
-							variant="contained"
-							color="primary"
-							onClick={signInWithGoogle}
-						>
-							Sign In With Google
-						</Button>
-						<Grid container>
-							<Grid item>
-								<Link href="#" variant="body2">
-									{"Don't have an account? Sign Up"}
-								</Link>
-							</Grid>
-						</Grid>
-						<Box mt={5}>
-							<Copyright />
-						</Box>
-					</form>
-				</div>
-			</Grid>
+		<Grid>
+			<Box
+				component="form"
+				sx={{ minWidth: 600 }}
+				noValidate
+				autoComplete="off"
+			>
+				<Stack spacing={{ xs: 1, sm: 2 }}>
+					<Box>
+						<img alt="Mango Market" src={logo} width={300} height={300} />
+					</Box>
+					<Typography variant="h1" gutterBottom>
+						Sign In
+					</Typography>
+					<TextField
+						variant="standard"
+						required
+						id="email"
+						label="Email"
+						name="email"
+						autoFocus
+						onChange={(e) => setEmail(e.target.value)}
+					/>
+					<TextField
+						variant="standard"
+						required
+						id="password"
+						label="Password"
+						name="password"
+						type="password"
+						autoComplete="current-password"
+						onChange={(e) => setPassword(e.target.value)}
+					/>
+					<FormControlLabel
+						control={<Checkbox value="remember" color="primary" />}
+						label="Remember me"
+					/>
+					<Button variant="contained" onClick={signIn}>
+						Sign In
+					</Button>
+					<Link href="#" variant="body2">
+						{"Don't have an account? Sign Up"}
+					</Link>
+					<Divider>or continue using</Divider>
+					<IconButton onClick={signInWithGoogle}>
+						<GoogleIcon />
+					</IconButton>
+					<Box mt={5}>
+						<Copyright />
+					</Box>
+				</Stack>
+			</Box>
 		</Grid>
 	);
 };

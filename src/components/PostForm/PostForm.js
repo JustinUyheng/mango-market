@@ -21,7 +21,6 @@ export const PostForm = () => {
 	const [location, setLocation] = useState("");
 	const [description, setDescription] = useState("");
 	const postsCollectionRef = collection(db, "posts");
-	console.log(auth?.currentUser);
 
 	const submitPost = async () => {
 		try {
