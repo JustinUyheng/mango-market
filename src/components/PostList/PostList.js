@@ -7,7 +7,15 @@ import {
 	updateDoc,
 	doc,
 } from "firebase/firestore";
-import { ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
+import {
+	Box,
+	Divider,
+	ImageList,
+	ImageListItem,
+	ImageListItemBar,
+	Stack,
+	Typography,
+} from "@mui/material";
 
 export const PostList = () => {
 	const [posts, setPosts] = useState([]);
@@ -166,6 +174,9 @@ export const PostList = () => {
 
 	return (
 		<div>
+			<Typography variant="h1" gutterBottom>
+				Popular second-hand items
+			</Typography>
 			{posts.map((post) => (
 				<div key={post.id}>
 					<h1>{post.title}</h1>
@@ -189,14 +200,35 @@ export const PostList = () => {
 							loading="lazy"
 						/>
 						<ImageListItemBar
+							sx={{
+								textAlign: "left",
+							}}
 							title={item.title}
 							subtitle={
 								<>
-									<span>by: {item.author}</span>
-									<span>{item.price} php</span>
-									<span>{item.location}</span>
-									<span>Interest {item.interest}</span>
-									<span>Chat {item.chat}</span>
+									<Stack>
+										<Typography variant="subtitle" gutterBottom>
+											{item.price} php
+										</Typography>
+										<Typography variant="subtitle" gutterBottom>
+											{item.location}
+										</Typography>
+										<Box
+											sx={{
+												display: "flex",
+												alignItems: "center",
+											}}
+											gap={1}
+										>
+											<Typography variant="subtitle">
+												Interest {item.interest}
+											</Typography>
+											<Divider orientation="vertical" flexItem />
+											<Typography variant="subtitle">
+												Chat {item.chat}
+											</Typography>
+										</Box>
+									</Stack>
 								</>
 							}
 							position="below"
