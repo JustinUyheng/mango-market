@@ -4,9 +4,8 @@ import { signOut } from "firebase/auth";
 import { LoginForm } from "./components/LoginForm/LoginForm";
 import { PostList } from "./components/PostList/PostList";
 import { PostForm } from "./components/PostForm/PostForm";
-import { Avatar, Button } from "@mui/material";
+import { Avatar, Button, Grid } from "@mui/material";
 import "./App.css";
-import { FileUploadForm } from "./components/FileUploadForm/FileUploadForm";
 
 function App() {
 	const logout = async () => {
@@ -19,7 +18,15 @@ function App() {
 
 	return (
 		<div className="App">
-			{/* <Avatar
+			<Grid
+				container
+				spacing={0}
+				direction="column"
+				alignItems="center"
+				justifyContent="center"
+				sx={{ minHeight: "100vh" }}
+			>
+				{/* <Avatar
 				alt={auth?.currentUser?.displayName}
 				src={auth?.currentUser?.photoURL}
 			/>
@@ -27,10 +34,10 @@ function App() {
 			<Button variant="contained" color="primary" onClick={logout}>
 				Logout
 			</Button> */}
-			{/* <LoginForm /> */}
-			{/* <PostList /> */}
-			<PostForm />
-			<FileUploadForm />
+				{/* <LoginForm /> */}
+				{/* <PostList /> */}
+				<PostForm />
+			</Grid>
 		</div>
 	);
 }

@@ -8,8 +8,11 @@ import {
 	Input,
 	InputLabel,
 	InputAdornment,
+	Stack,
 	TextField,
+	Typography,
 } from "@mui/material";
+import { FileUploadForm } from "../FileUploadForm/FileUploadForm";
 
 export const PostForm = () => {
 	const [title, setTitle] = useState("");
@@ -41,75 +44,54 @@ export const PostForm = () => {
 	};
 
 	return (
-		<Box
-			component="form"
-			sx={{
-				"& > :not(style)": { m: 1, width: "25ch" },
-			}}
-			noValidate
-			autoComplete="off"
-		>
-			<TextField
-				id="standard-basic"
-				label="Title"
-				variant="standard"
-				onChange={(e) => setTitle(e.target.value)}
-			/>
-			<TextField
-				id="standard-basic"
-				label="Price"
-				variant="standard"
-				onChange={(e) => setPrice(e.target.value)}
-			/>
-			<FormControl fullWidth sx={{ m: 1 }} variant="standard">
-				<InputLabel htmlFor="standard-adornment-amount">Price</InputLabel>
-				<Input
-					id="standard-adornment-amount"
-					endAdornment={<InputAdornment position="end">php</InputAdornment>}
+		<Box component="form" sx={{ minWidth: 600 }} noValidate autoComplete="off">
+			<Typography variant="h1" gutterBottom>
+				Create a post
+			</Typography>
+			<FileUploadForm />
+			<Stack spacing={{ xs: 1, sm: 2 }}>
+				<TextField
+					id="standard-basic"
+					label="Title"
+					variant="standard"
+					onChange={(e) => setTitle(e.target.value)}
 				/>
-			</FormControl>
-			<TextField
-				id="standard-basic"
-				label="Category"
-				variant="standard"
-				onChange={(e) => setCategory(e.target.value)}
-			/>
-			<TextField
-				id="standard-basic"
-				label="Location"
-				variant="standard"
-				onChange={(e) => setLocation(e.target.value)}
-			/>
-			<TextField
-				id="outlined-multiline-static"
-				label="Description"
-				multiline
-				rows={4}
-				onChange={(e) => setDescription(e.target.value)}
-			/>
-			<input
-				placeholder="Title..."
-				onChange={(e) => setTitle(e.target.value)}
-			/>
-			<input
-				placeholder="Title..."
-				onChange={(e) => setTitle(e.target.value)}
-			/>
-			<input
-				placeholder="Category..."
-				onChange={(e) => setCategory(e.target.value)}
-			/>
-			<input
-				placeholder="Title..."
-				onChange={(e) => setTitle(e.target.value)}
-			/>
-			<input
-				placeholder="Title..."
-				onChange={(e) => setTitle(e.target.value)}
-			/>
-			<Button variant="contained" onClick={submitPost}>
-				Submit Post
-			</Button>
+				<TextField
+					id="standard-basic"
+					label="Price"
+					variant="standard"
+					onChange={(e) => setPrice(e.target.value)}
+				/>
+				<FormControl fullWidth sx={{ m: 1 }} variant="standard">
+					<InputLabel htmlFor="standard-adornment-amount">Price</InputLabel>
+					<Input
+						id="standard-adornment-amount"
+						endAdornment={<InputAdornment position="end">php</InputAdornment>}
+					/>
+				</FormControl>
+				<TextField
+					id="standard-basic"
+					label="Category"
+					variant="standard"
+					onChange={(e) => setCategory(e.target.value)}
+				/>
+				<TextField
+					id="standard-basic"
+					label="Location"
+					variant="standard"
+					onChange={(e) => setLocation(e.target.value)}
+				/>
+				<TextField
+					id="outlined-multiline-static"
+					label="Description"
+					multiline
+					rows={4}
+					onChange={(e) => setDescription(e.target.value)}
+				/>
+				<Button variant="contained" onClick={submitPost}>
+					Submit Post
+				</Button>
+			</Stack>
 		</Box>
 	);
 };
