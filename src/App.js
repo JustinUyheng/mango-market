@@ -3,6 +3,7 @@ import { signOut } from "firebase/auth";
 import { LoginForm } from "./components/LoginForm/LoginForm";
 import { PostList } from "./components/PostList/PostList";
 import { PostForm } from "./components/PostForm/PostForm";
+import { Post } from "./components/Post/Post";
 import { Copyright } from "./components/Copyright/Copyright";
 import { Avatar, Button, Grid } from "@mui/material";
 import "./App.css";
@@ -37,6 +38,7 @@ function App() {
 				<LoginForm />
 				<PostList />
 				<PostForm />
+				<Post />
 			</Grid>
 			<Copyright />
 		</div>
