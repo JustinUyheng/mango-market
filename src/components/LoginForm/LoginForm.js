@@ -15,7 +15,6 @@ import {
 	Typography,
 } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
-import { Copyright } from "../Copyright/Copyright";
 import logo from "../../assets/logo.png";
 
 export const LoginForm = () => {
@@ -47,7 +46,7 @@ export const LoginForm = () => {
 		<Grid>
 			<Box
 				component="form"
-				sx={{ minWidth: 600 }}
+				sx={{ minWidth: 600, textAlign: "center" }}
 				noValidate
 				autoComplete="off"
 			>
@@ -91,9 +90,6 @@ export const LoginForm = () => {
 					<IconButton onClick={signInWithGoogle}>
 						<GoogleIcon />
 					</IconButton>
-					<Box mt={5}>
-						<Copyright />
-					</Box>
 				</Stack>
 			</Box>
 		</Grid>
