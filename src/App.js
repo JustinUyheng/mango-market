@@ -3,10 +3,8 @@ import { Home } from "./components/Home/Home";
 import { Products } from "./components/Products/Products";
 import { FAQ } from "./components/FAQ/FAQ";
 import { Login } from "./components/Login/Login";
-import { Post } from "./components/Post/Post";
 import { Copyright } from "./components/Copyright/Copyright";
 import ResponsiveAppBar from "./components/Nav/Nav";
-import { Grid } from "@mui/material";
 import "./App.css";
 
 function App() {
